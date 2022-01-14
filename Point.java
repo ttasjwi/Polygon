@@ -1,40 +1,22 @@
 import java.util.Objects;
-import static java.lang.Math.*;
 
 public class Point {
 
-    private int x;
-    private int y;
+    private Vector position;
 
     public Point(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.position = Vector.of(x,y);
     }
 
+    // 두 점 사이의 거리
+    public static double distance(Point p1, Point p2) {
+        Vector subtract = Vector.subtract(p1.position, p2.position);
+        return subtract.size(); // 벡터의 차를 구하고, 그 크기를 반환
+    }
+
+    // 다른 점과의 거리
     public double distance(Point other) {
         return distance(this, other);
-    }
-
-    public static double distance(Point p, Point q) {
-        return sqrt(
-                pow(distanceX(p,q),2) + pow(distanceY(p,q),2)
-        );
-    }
-
-    private static int distanceX(Point p, Point q) {
-        return abs(p.getX()-q.getX());
-    }
-
-    private static int distanceY(Point p, Point q) {
-        return abs(p.getY()-q.getY());
-    }
-
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
     }
 
     @Override
@@ -42,16 +24,12 @@ public class Point {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Point point = (Point) o;
-        return x == point.x && y == point.y;
+        return position.equals(point.position);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(x, y);
+        return Objects.hash(position);
     }
 
-    @Override
-    public String toString() {
-        return String.format("(%d,%d)", this.x, this.y);
-    }
 }
