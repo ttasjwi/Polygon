@@ -64,6 +64,20 @@ public class Vector {
         return sqrt(pow(vector.x, 2) + pow(vector.y, 2));
     }
 
+
+    public static double crossProduct(Vector v1, Vector v2) {
+        return v1.x * v2.y - v1.y * v2.x;
+    }
+
+    public static double crossProductSize(Vector v1, Vector v2) {
+        return abs(crossProduct(v1,v2));
+    }
+
+    // 두 벡터의 사인값(이떄 두 벡터가 이루는 각의 크기는 0 이상 180도 이하이다.
+    public static double sine(Vector v1, Vector v2) {
+        return (crossProductSize(v1,v2))/(v1.size() * v2.size());
+    }
+
     // 두 벡터가 평행한 지의 여부
     public static boolean isPararell(Vector vector1, Vector vector2) {
         // 어느 한 쪽이라도 영벡터면 평행하다.
