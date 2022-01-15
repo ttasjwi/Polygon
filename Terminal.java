@@ -8,7 +8,10 @@ public class Terminal {
             Shape shape = ShapeFactory.makeShape(points);
             OutputView.print(shape);
             return true;
-        } catch (Exception e) {
+        } catch (IllegalArgumentException ile) {
+            System.out.println(ile.getMessage());
+            return run();
+        }catch (Exception e) {
             e.printStackTrace();
             return run();
         }
