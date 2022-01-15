@@ -12,6 +12,14 @@ public class Point implements Shape {
         this.y = y;
     }
 
+    public int getX() {
+        return this.x;
+    }
+
+    public int getY() {
+        return this.y;
+    }
+
     // 두 점 사이의 거리
     public static double distance(Point p, Point q) {
         Vector pq = Vector.fromTo(p,q);
