@@ -143,5 +143,9 @@ public class Vector {
         return Objects.hash(x, y);
     }
 
+    @Override
+    public String toString() {
+        return String.format("(%d,%d)",this.x,this.y);
+    }
 
 }
