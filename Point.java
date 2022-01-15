@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Point {
+public class Point implements Shape {
 
     private int x;
     private int y;
@@ -8,10 +10,6 @@ public class Point {
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
-    }
-
-    public Vector positionVector() {
-        return Vector.of(this.x, this.y);
     }
 
     // 두 점 사이의 거리
@@ -23,6 +21,31 @@ public class Point {
     // 다른 점과의 거리
     public double distance(Point other) {
         return distance(this, other);
+    }
+
+    public static Vector positionVector(Point point) {
+        return Vector.of(point.x, point.y);
+    }
+
+    public Vector positionVector() {
+        return positionVector(this);
+    }
+
+    @Override
+    public double area() {
+        return 0;
+    }
+
+    @Override
+    public int countOfPoints() {
+        return 1;
+    }
+
+    @Override
+    public List<Point> getPoints() {
+        List<Point> points = new ArrayList<>();
+        points.add(this);
+        return points;
     }
 
     @Override
