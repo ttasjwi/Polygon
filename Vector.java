@@ -24,6 +24,11 @@ public class Vector {
         return ZERO_VECTOR;
     }
 
+    // start에서 end를 향한 벡터
+    public static Vector fromTo(Point start, Point end) {
+        return Vector.subtract(end.positionVector(), start.positionVector());
+    }
+
     // 벡터의 크기
     public static double size(Vector vector) {
         return sqrt(pow(vector.x, 2) + pow(vector.y, 2));
