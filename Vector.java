@@ -98,6 +98,10 @@ public class Vector {
         }
     }
 
+    public static boolean isRightAngle(Vector v1, Vector v2) {
+        return innerProduct(v1,v2) == 0;
+    }
+
     public Vector sum(Vector other) {
         return sum(this, other);
     }
