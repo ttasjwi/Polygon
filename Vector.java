@@ -24,6 +24,11 @@ public class Vector {
         return ZERO_VECTOR;
     }
 
+    // 벡터의 크기
+    public static double size(Vector vector) {
+        return sqrt(pow(vector.x, 2) + pow(vector.y, 2));
+    }
+
     // 벡터의 합
     public static Vector sum(Vector v1, Vector v2) {
         int xSum = v1.x + v2.x;
@@ -58,12 +63,6 @@ public class Vector {
     public static double cosine(Vector v1, Vector v2) {
         return ((double)innerProduct(v1,v2))/(v1.size() * v2.size());
     }
-
-    // 벡터의 크기
-    public static double size(Vector vector) {
-        return sqrt(pow(vector.x, 2) + pow(vector.y, 2));
-    }
-
 
     public static double crossProduct(Vector v1, Vector v2) {
         return v1.x * v2.y - v1.y * v2.x;
