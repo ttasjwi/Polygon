@@ -15,9 +15,9 @@ public class Point {
     }
 
     // 두 점 사이의 거리
-    public static double distance(Point p1, Point p2) {
-        Vector subtract = Vector.subtract(p1.positionVector(), p2.positionVector());
-        return subtract.size(); // 벡터의 차를 구하고, 그 크기를 반환
+    public static double distance(Point p, Point q) {
+        Vector pq = Vector.fromTo(p,q);
+        return pq.size();
     }
 
     // 다른 점과의 거리
