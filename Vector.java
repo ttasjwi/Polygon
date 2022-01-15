@@ -17,14 +17,6 @@ public class Vector {
         this.y = y;
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
     public static Vector of(int x, int y) {
         return (x == 0 && y == 0) ? zero() : new Vector(x,y);
     }
